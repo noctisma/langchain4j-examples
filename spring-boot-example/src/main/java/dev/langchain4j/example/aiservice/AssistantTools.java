@@ -16,7 +16,7 @@ public class AssistantTools {
     @Tool
     @Observed
     public String currentTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyymmdd-HHmmss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         return LocalDateTime.now().format(formatter);
     }
 }
