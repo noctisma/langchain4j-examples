@@ -4,7 +4,8 @@ import dev.langchain4j.agent.tool.Tool;
 import io.micrometer.observation.annotation.Observed;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Component
 public class AssistantTools {
@@ -15,6 +16,7 @@ public class AssistantTools {
     @Tool
     @Observed
     public String currentTime() {
-        return LocalTime.now().toString();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        return LocalDateTime.now().format(formatter);
     }
 }
